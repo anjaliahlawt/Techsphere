@@ -1,0 +1,141 @@
+.event-container {
+  padding: 20px;
+  margin-top: 5rem;
+}
+
+.event-title {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+.sort-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    margin-left: 9rem;
+  }
+  .vertical-line {
+      width: 1px; 
+      height: 40px; 
+      background-color: #D0D5DD; 
+    }
+  .sort-container select {
+    padding: 5px;
+    font-size: 14px;
+    background-color: white;
+    border: 1px solid #5a5656;
+    border-radius: 40px;
+    cursor: pointer;
+    outline: none;
+    font-weight: bold;
+  }
+  
+  .sort-container select:focus {
+    background-color: #e0e0e0;
+    border-color: #242222;
+  }
+  
+  .sort-container select {
+    min-width: 1px;
+  }
+  
+.event-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.event-card {
+  width: 300px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+}
+.event-header {
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;
+    width: 100%;
+  }
+.image-container {
+  background-color: #eef0ff;
+  padding: 10px;
+  border-radius: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.event-location {
+  background-color: #fee2e2;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 7px;
+  margin-bottom: 0px;
+  display: inline-block;
+  padding: 2px 5px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.event-name {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: -12px;
+  }
+  
+  .event-description {
+    margin-bottom: -12px;
+  }
+  
+  .event-detail {
+    margin-bottom: -12px;
+  }
+  
+
+  .bold-text {
+    font-weight: bold;
+  }
+  
+
+.bookmark-icon {
+    
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+  
+  .bookmark-icon img {
+    width: 90%;
+    height: auto;
+    margin-top: 6px;
+  }
+
+button {
+  background-color: rgb(255, 123, 0);
+  color: white;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom:18px;
+  margin-left:19px;
+  margin-right:20px;
+  width: 17rem;
+  
+}

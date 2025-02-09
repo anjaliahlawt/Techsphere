@@ -1,0 +1,68 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 120px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 60px;
+  }
+  
+  .logo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logoImage {
+    height: 30px; 
+    width: auto; 
+  }
+  
+  .searchContainer {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .searchBar {
+    width: 60%; 
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px; 
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  .buttons {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .loginButton,
+  .signupButton {
+    width: 110px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px; 
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .loginButton {
+    background-color: #F7F8F9;
+    border-color: #D0D5DD;
+    color: black;
+  }
+  
+  .signupButton {
+    background-color: #EB5B00;
+    color: white;
+  }
