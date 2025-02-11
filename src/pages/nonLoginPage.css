@@ -1,0 +1,44 @@
+.event-container {
+  padding: 20px;
+  margin-top: 5rem;
+ 
+}
+.event-title {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  .sort-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 15px;
+      border-radius: 15px;
+      margin-left: 9rem;
+    }
+    .vertical-line {
+        width: 1px; 
+        height: 40px; 
+        background-color: #D0D5DD; 
+      }
+    .sort-container select {
+      padding: 5px;
+      font-size: 14px;
+      background-color: white;
+      border: 1px solid #5a5656;
+      border-radius: 40px;
+      cursor: pointer;
+      outline: none;
+      font-weight: bold;
+    }
+    
+    .sort-container select:focus {
+      background-color: #e0e0e0;
+      border-color: #242222;
+    }
+    
+    .sort-container select {
+      min-width: 1px;
+    }

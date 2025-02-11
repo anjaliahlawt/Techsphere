@@ -1,7 +1,7 @@
 import { useState } from "react";
-import styles from "./registrationPage.module.css";
+import styles from "./registrationPopUp.module.css";
 
-const RegistrationPage = () => {
+const Registration = () => {
   const [isVisible, setIsVisible] = useState(true);
 
   const [formData, setFormData] = useState({
@@ -121,4 +121,4 @@ const RegistrationPage = () => {
   );
 };
 
-export default RegistrationPage;
+export default Registration;
