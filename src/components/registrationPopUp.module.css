@@ -60,7 +60,7 @@
 }
 
 
-.button {
+.regbutton {
     background-color:#EB5B00;
     color: white;
     padding: 12px;
@@ -72,9 +72,10 @@
     width:auto;
 }
 .closeButton {
+    
     position: relative;
-    top: -15px;
-    left: 15rem;
+    top: -20px;
+    left: 11rem;
     background: none;
     border: none;
     cursor: pointer;

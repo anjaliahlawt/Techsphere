@@ -5,11 +5,11 @@
     padding: 0 120px;
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    /* z-index: 1000; */
     height: 60px;
   }
   
@@ -42,13 +42,15 @@
   .buttons {
     flex: 1;
     display: flex;
+    
     justify-content: flex-end;
     gap: 10px;
   }
   
   .loginButton,
   .signupButton {
-    width: 110px;
+    width: 140px;
+    font-weight:bold;
     padding: 8px 16px;
     border: none;
     border-radius: 8px; 
@@ -58,11 +60,15 @@
   
   .loginButton {
     background-color: #F7F8F9;
+    border: solid 1px #d0d5dd82;
+
     border-color: #D0D5DD;
     color: black;
   }
   
   .signupButton {
     background-color: #EB5B00;
+    border: solid 1px #d0d5dd82;
+
     color: white;
   }

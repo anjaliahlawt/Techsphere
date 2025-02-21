@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./menuBar.css";
+import styles from "./menuBar.module.css";  // Import styles from the module
 
 const MenuBar = () => {
   const [activeItem, setActiveItem] = useState(null);
@@ -11,15 +11,14 @@ const MenuBar = () => {
   ];
 
   return (
-    <div className="menu-bar">
-      <img className="logo" src="/src/assets/Frame 21340.png" alt="Logo" />
+    <div className={styles.menuBar}>
+      <img className={styles.logo} src="/src/assets/logo.svg" alt="Logo" />
 
-      {/* Menu items list */}
-      <div className="menu-list">
+      <div className={styles.menuList}>
         {menuItems.map((item) => (
           <div
             key={item.id}
-            className={`menu-item ${activeItem === item.id ? "active" : ""}`}
+            className={`${styles.menuItem} ${activeItem === item.id ? styles.active : ""}`}
             onClick={() => setActiveItem(item.id)}
           >
             <img src={item.icon} alt={item.name} />
@@ -28,7 +27,7 @@ const MenuBar = () => {
         ))}
       </div>
 
-      <button className="logout-btn">
+      <button className={styles.logoutBtn}>
         <img src="/Vector (1).png" alt="Logout Icon" />
         Log Out
       </button>

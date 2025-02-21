@@ -111,7 +111,7 @@ const Registration = () => {
                 onChange={handleChange}
               />
             </div>
-            <button className={styles.button} type="submit">
+            <button className={styles.regbutton} type="submit">
               Register Now
             </button>
           </form>

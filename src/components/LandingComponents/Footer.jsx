@@ -1,9 +1,7 @@
-import { FaFacebook, FaLinkedin, FaInstagram, FaYoutube } from "react-icons/fa";
 import "./Footer.css";
 
 const Footer = () => {
   return (
-    
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-grid">
@@ -25,27 +23,28 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
+          <div className="Contact">
             <h3 className="footer-title">Contact Information</h3>
             <p>Email: support@techsphere.org</p>
             <p>Phone: +1 (800) 123-4567</p>
             <p>Address: 123 Square Avenue, City, Country</p>
           </div>
-        </div>
 
-        <div className="footer-bottom">
+        <div className="footer-bottom"> 
           <div className="footer-branding">
-            <span className="footer-logo">TechSphere</span>
-            <p className="footer-tagline">Where tech minds gather!</p>
+            <span className="footer-logo"><img src="/src/TestImages/FooterLogo.svg"></img></span>
           </div>
           
           <div className="footer-social">
-            <a href="#" className="footer-icon"><FaYoutube /></a>
-            <a href="#" className="footer-icon"><FaInstagram /></a>
-            <a href="#" className="footer-icon"><FaLinkedin /></a>
-            <a href="#" className="footer-icon"><FaFacebook /></a>
+            <a href="#" className="footer-icon"><img src = "/src/TestImages/youtube.svg"></img></a>
+            <a href="#" className="footer-icon"><img src = "/src/TestImages/instagram.svg"></img></a>
+            <a href="#" className="footer-icon"><img src = "/src/TestImages/linkedin.svg"></img></a>
+            <a href="#" className="footer-icon"><img src = "/src/TestImages/facebook.svg"></img></a>
           </div>
         </div>
+        </div>
+
+        <hr></hr>
 
         <p className="footer-copyright">
           &copy; 2025 InnoHack. Empowering Innovators Worldwide.

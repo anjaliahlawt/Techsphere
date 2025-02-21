@@ -1,6 +1,6 @@
-
-import styles from './navbar.module.css';
-import Logo from '/src/assets/Frame 21340.png';
+// import React from 'react';
+import styles from './Navbar.module.css';
+import Logo from '/src/assets/logo.svg';
 
 const Navbar = () => {
   return (
@@ -16,6 +16,7 @@ const Navbar = () => {
         <button className={styles.signupButton}>Sign Up</button>
       </div>
     </nav>
+    
   );
 };
 

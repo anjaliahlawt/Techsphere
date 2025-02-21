@@ -1,4 +1,4 @@
-import MenuBar from "../componets/menuBar";
+import MenuBar from "../components/menuBar";
 import "./dashboardHomePage.css";
 const DashboardPastEvents = () => {
     return (

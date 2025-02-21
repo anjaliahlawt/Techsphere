@@ -1,28 +1,36 @@
 .footer {
     background-color: black;
     color: white;
-    padding: 24px 0;
+    padding: 60px 120px;
+    text-align: left;
   }
   
   .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    
   }
   
   .footer-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    display: flex;
+    gap: 42px;
   }
   
+  .Contact{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
   .footer-title {
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 12px;
+    padding-bottom: 12px;
   }
+
+
   
   .footer-list {
+    margin-top: 8px;
     list-style: none;
     padding: 0;
   }
@@ -31,7 +39,7 @@
     color: white;
     text-decoration: none;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     transition: color 0.3s ease;
   }
   
@@ -40,24 +48,17 @@
   }
   
   .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid gray;
-    margin-top: 20px;
-    padding-top: 20px;
+    
   }
   
   .footer-branding {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    
+    
   }
   
   .footer-logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: orange;
+    position: relative;
+    left: 60px;
   }
   
   .footer-tagline {
@@ -65,6 +66,11 @@
   }
   
   .footer-social {
+    position: relative;
+    top: 40px;
+    left: 100px;
+    padding-top: 40px;
+    /* padding-left: 120px; */
     display: flex;
     gap: 16px;
   }
@@ -77,6 +83,10 @@
   
   .footer-icon:hover {
     color: gray;
+  }
+
+  hr{
+    margin-top:40px;
   }
   
   .footer-copyright {
