@@ -16,7 +16,7 @@ import './app.css';
         {
             const [eventdata, setEventdata] = useState([]);
             const getEventdata = async () => {
-                const res = await fetch("https://backendtechsphere.onrender.com//eventcard");
+                const res = await fetch("https://backendtechsphere.onrender.com/eventcard");
                 const resObj = await res.json();
                 setEventdata(resObj.data);
                 console.log(resObj.data);
