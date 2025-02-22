@@ -26,7 +26,7 @@ const Login = () => {
 
   const fetchProfile = async () => {
     try {
-      const res = await fetch("http://localhost:3002/auth/profile", {
+      const res = await fetch("https://backendtechsphere.onrender.com/auth/profile", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
         credentials: "include",  

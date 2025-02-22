@@ -21,7 +21,7 @@ const Signup = () => {
   
     try {
    
-      const signupRes = await fetch("https://backendtechsphere.onrender.com//auth/signup", {
+      const signupRes = await fetch("https://backendtechsphere.onrender.com/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -36,7 +36,7 @@ const Signup = () => {
       }
   
   
-      const otpRes = await fetch("http://localhost:3002/otp", {
+      const otpRes = await fetch("https://backendtechsphere.onrender.com/otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: formData.email }),

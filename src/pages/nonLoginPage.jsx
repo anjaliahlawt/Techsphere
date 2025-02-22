@@ -27,7 +27,7 @@ const NonLoginPage = () => {
           duration,
         });
 
-        const response = await fetch(`http://localhost:3002/eventcard/filter?${queryParams}`);
+        const response = await fetch(`https://backendtechsphere.onrender.com/eventcard/filter?${queryParams}`);
         if (!response.ok) {
           throw new Error("Failed to fetch events");
         }
