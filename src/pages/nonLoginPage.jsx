@@ -11,12 +11,11 @@ const NonLoginPage = () => {
   const [price, setPrice] = useState("");
   const [isFree, setIsFree] = useState("false");
   const [duration, setDuration] = useState("");
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchEvents = async () => {
-      setLoading(true);
+    
       setError(null);
       try {
         const queryParams = new URLSearchParams({
@@ -36,9 +35,7 @@ const NonLoginPage = () => {
         setEvents(data);
       } catch (error) {
         setError(error.message);
-      } finally {
-        setLoading(false);
-      }
+      } 
     };
 
     fetchEvents();
@@ -96,7 +93,6 @@ const NonLoginPage = () => {
         </select>
       </div>
 
-      {loading && <p>Loading events...</p>}
       {error && <p className={styles.errorText}>Error: {error}</p>}
 
       <div className={styles.eventGrid}>
