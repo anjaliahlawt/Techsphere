@@ -22,8 +22,8 @@ const App = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                mode: "cors",  // ✅ Ensures CORS is enabled
-                credentials: "include" // ✅ Needed if backend uses cookies/session
+                mode: "cors",  
+                credentials: "include" 
             });
 
             if (!res.ok) {
