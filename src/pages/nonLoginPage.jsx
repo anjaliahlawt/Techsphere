@@ -37,11 +37,12 @@ const NonLoginPage = () => {
         }
 
         const data = await response.json();
-        setEvents(data.length ? data : []);
+        setEvents(data.events || []); // Extract the events array here
       } catch (error) {
         setError(error.message);
       }
     };
+  
 
     fetchEvents();
   }, [view, sortBy, price, isFree, duration, page]);
