@@ -37,7 +37,7 @@ const NonLoginPage = () => {
         }
 
         const data = await response.json();
-        setEvents(data.events || []); // Extract the events array here
+        setEvents(data.events || []); 
       } catch (error) {
         setError(error.message);
       }
@@ -112,7 +112,7 @@ const NonLoginPage = () => {
               <p className={styles.eventLocation}>{event.location}</p>
               <h3 className={styles.eventName}>{event.name}</h3>
               <p className={styles.eventDescription}>{event.description}</p>
-              <p>
+              <p className={styles.eventDetail}>
                 Start:{" "}
                 <span className={styles.boldText}>
                   {formatDate(event.start)}
