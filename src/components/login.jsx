@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -7,7 +6,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     
-    const res = await fetch("https://backendtechsphere.onrender.com//auth/login", {
+    const res = await fetch(import.meta.env.VITE_BACKEND_URL+`/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -18,6 +17,7 @@ const Login = () => {
 
     if (data.status === "success") {
       alert("Login successful!");
+ 
       fetchProfile();
     } else {
       alert("Invalid credentials!");
@@ -26,14 +26,18 @@ const Login = () => {
 
   const fetchProfile = async () => {
     try {
-      const res = await fetch("https://backendtechsphere.onrender.com/auth/profile", {
+      const res = await fetch(import.meta.env.VITE_BACKEND_URL+`/auth/profile`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
         credentials: "include",  
       });
 
       const data = await res.json();
+      if (res.ok && data.userId) {
+        console.log("User ID:", data.userId);
+      }
       console.log("Profile Response:", data);
+      
     } catch (error) {
       console.error("Error fetching profile:", error);
     }
@@ -41,7 +45,7 @@ const Login = () => {
 
   return (
     <div>
-      <h2>Login</h2>
+     
       <form onSubmit={handleLogin}> 
         <input
           type="email"
@@ -60,5 +64,6 @@ const Login = () => {
     </div>
   );
 };
+
 
 export default Login;

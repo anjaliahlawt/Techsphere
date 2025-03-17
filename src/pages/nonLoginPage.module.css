@@ -75,12 +75,36 @@
   font-weight: bold;
   font-size: 14px;
   margin-top: 12px;
-  margin-bottom: 1px;
+  margin-bottom: 12px;
   display: inline-block;
-  padding: 3px 6px;
+  padding: 2px 5px;
   border-radius: 4px;
   width: fit-content;
 }
+ 
+.bookmarkIcon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-top: -35px;
+  margin-left: 17rem;
+ 
+}
+
+.bookmarkIcon img {
+  width: 90%;
+    height: auto;
+    margin-top: 6px;
+}
+
+.toggleMessage {
+  color: green;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5px;
+  transition: opacity 0.3s ease-in-out;
+}
+
 
 .eventName {
   font-weight: bold;
@@ -95,6 +119,7 @@
 .eventDetail {
   margin-bottom: 2px;
 }
+
 
 
 .viewButton {

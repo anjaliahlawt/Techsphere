@@ -4,7 +4,12 @@ import Footer from "../components/LandingComponents/Footer.jsx";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Pagination } from "@mui/material";
-const NonLoginPage = () => {
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import useBookmarks from "../Hook/useBookmark.js"; 
+
+
+const Nonloginpage = () => {
   const [events, setEvents] = useState([]);
   const [view, setView] = useState("all");
   const [sortBy, setSortBy] = useState("");
@@ -13,6 +18,8 @@ const NonLoginPage = () => {
   const [duration, setDuration] = useState("");
   const [page, setPage] = useState(1);
   const [error, setError] = useState(null);
+ 
+  const { bookmarkedEvents, toggleBookmark } = useBookmarks(); 
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -29,7 +36,7 @@ const NonLoginPage = () => {
         });
 
         const response = await fetch(
-          `https://backendtechsphere.onrender.com/eventcard/filter?${queryParams}`
+          import.meta.env.VITE_BACKEND_URL + `/eventcard/filter?${queryParams}`
         );
 
         if (!response.ok) {
@@ -37,23 +44,23 @@ const NonLoginPage = () => {
         }
 
         const data = await response.json();
-        setEvents(data.events || []); 
+        setEvents(data.events || []);
       } catch (error) {
         setError(error.message);
       }
     };
-  
 
     fetchEvents();
   }, [view, sortBy, price, isFree, duration, page]);
 
   const navigate = useNavigate();
   const handleViewDetails = () => navigate("/detail-page");
+
   const formatDate = (date) => {
     const d = new Date(date);
-    const day = String(d.getUTCDate()).padStart(2, "0"); 
+    const day = String(d.getUTCDate()).padStart(2, "0");
     const month = d.toLocaleString("default", { month: "short" });
-    const year = d.getUTCFullYear(); 
+    const year = d.getUTCFullYear();
     return `${month} ${day}, ${year}`;
   };
 
@@ -61,7 +68,7 @@ const NonLoginPage = () => {
     <div className={styles.eventContainer}>
       <Navbar />
       <h2 className={styles.eventTitle}>Explore Events</h2>
-
+      <ToastContainer />
       <div className={styles.sortContainer}>
         <select onChange={(e) => setView(e.target.value)} value={view}>
           <option value="all">View Hackathon</option>
@@ -110,6 +117,22 @@ const NonLoginPage = () => {
           events.map((event) => (
             <div key={event._id} className={styles.eventCard}>
               <p className={styles.eventLocation}>{event.location}</p>
+              <div
+                className="bookmark-icon"
+                onClick={() => toggleBookmark(event._id)}
+              >
+          <div className={styles.bookmarkIcon} onClick={() => toggleBookmark(event._id)}>
+          <img 
+  src={bookmarkedEvents.has(event._id) ? "/bookmark (1).png" : "/bookmark.png"} 
+  alt="Bookmark Icon"
+  key={event._id} // Adding a key forces React to re-render the image when state updates
+/>
+
+
+</div>
+
+
+              </div>
               <h3 className={styles.eventName}>{event.name}</h3>
               <p className={styles.eventDescription}>{event.description}</p>
               <p className={styles.eventDetail}>
@@ -150,4 +173,4 @@ const NonLoginPage = () => {
   );
 };
 
-export default NonLoginPage;
+export default Nonloginpage;

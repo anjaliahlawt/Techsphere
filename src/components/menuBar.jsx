@@ -1,13 +1,13 @@
 import { useState } from "react";
-import styles from "./menuBar.module.css";  // Import styles from the module
-
-const MenuBar = () => {
-  const [activeItem, setActiveItem] = useState(null);
+import PropTypes from 'prop-types';
+import styles from "./menuBar.module.css"; // Import CSS
+const MenuBar = ({ setActiveTab }) => {  // ✅ Accept setActiveTab as prop
+  const [activeItem, setActiveItem] = useState("registered");
 
   const menuItems = [
-    { id: 1, name: "Registered Events", icon: "/Icons Library.png" },
-    { id: 2, name: "Saved Events", icon: "/Icons Library (1).png" },
-    { id: 3, name: "Past Events", icon: "/Vector.png" },
+    { id: "registered", name: "Registered Events", icon: "/Icons Library.png" },
+    { id: "saved", name: "Saved Events", icon: "/Icons Library (1).png" },
+    { id: "past", name: "Past Events", icon: "/Vector.png" },
   ];
 
   return (
@@ -18,8 +18,13 @@ const MenuBar = () => {
         {menuItems.map((item) => (
           <div
             key={item.id}
-            className={`${styles.menuItem} ${activeItem === item.id ? styles.active : ""}`}
-            onClick={() => setActiveItem(item.id)}
+            className={`${styles.menuItem} ${
+              activeItem === item.id ? styles.active : ""
+            }`}
+            onClick={() => {
+              setActiveItem(item.id);
+              setActiveTab(item.id);  // ✅ Use setActiveTab to change tab
+            }}
           >
             <img src={item.icon} alt={item.name} />
             <h5>{item.name}</h5>
@@ -34,5 +39,9 @@ const MenuBar = () => {
     </div>
   );
 };
+MenuBar.propTypes = {
+  setActiveTab: PropTypes.func.isRequired,
+};
 
 export default MenuBar;
+

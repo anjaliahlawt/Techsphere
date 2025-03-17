@@ -22,9 +22,9 @@ const SingleEventCard = ({ event, imageBg }) => {
   const formattedStartDate = formatDate(event.start);
 
   return (
-    <div className="event-card" onClick={handleViewDetails}>
+    <div className="event-card">
       <div className="image-container" style={{ backgroundColor: imageBg }}>
-        <img className="img" src={event.imageUrl} alt="Event" />
+      <img className="img" src="/Illustration.png" alt="Illustration" />
       </div>
       <div className="event-header">
         <p className="event-location">{event.location}</p>
