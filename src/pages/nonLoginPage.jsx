@@ -64,9 +64,14 @@ const Nonloginpage = () => {
     return `${month} ${day}, ${year}`;
   };
 
-  const filteredEvents = events.filter((event) =>
-    event.name.toLowerCase().includes(searchText.toLowerCase())
-  );
+  const filteredEvents = events.filter((event) => {
+    if (typeof searchText !== "string") {
+      console.error("Invalid search text:", searchText);
+      return true; // Return all events if searchText is invalid
+    }
+    return event.name.toLowerCase().includes(searchText.toLowerCase());
+  });
+  
 
   return (
     <div className={styles.eventContainer}>

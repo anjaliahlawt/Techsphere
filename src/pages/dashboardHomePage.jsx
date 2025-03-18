@@ -5,14 +5,15 @@ import SavedEvents from "../components/bookMarkEvent.jsx";
 import PastEvents from "../components/pastEvent.jsx";
 import Dashboardevent from "../Hook/useDashboard.js"; 
 import "./dashboardHomePage.css";
+import { useNavigate } from "react-router-dom";
 
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("registered");
-  3
-   const { bookmarkedEvents, pastEvents } = Dashboardevent();
+  const { bookmarkedEvents, pastEvents } = Dashboardevent();
   console.log("bookmarkedEvents in dashboardhomepage", bookmarkedEvents);
-
+  const navigate=useNavigate();
+  const handlechange = () => navigate("/nonlogin");
   return (
     <div className="dashboard-container">
       <MenuBar setActiveTab={setActiveTab} />
@@ -26,7 +27,7 @@ const Dashboard = () => {
               ? "Saved Events"
               : "Past Events"}
           </h2>
-          <button className="explore-btn">Explore Events</button>
+          <button onClick={handlechange}className="explore-btn">Explore Events</button>
       
         </div>
 

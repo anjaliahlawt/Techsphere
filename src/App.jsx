@@ -52,7 +52,7 @@ const App = () => {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login/>} />
                 <Route path="/detail-page" element={<DetailPage />} />
-                <Route path="/nonlogin" element={<Nonloginpage/>} />
+                <Route path="/nonlogin" element={<Nonloginpage eventdata={eventdata}/>} />
                 <Route path="/register" element={<Registration />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                

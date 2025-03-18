@@ -1,12 +1,12 @@
 import { useState } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import styles from "../LandingComponents/Navbar.module.css";
 import Logo from "/src/assets/logo.svg";
 import Login from "../login.jsx"; 
 import Signup from "../signUp.jsx"; 
 import SearchBar from "../searchBar.jsx";
 
-const Navbar = ({onSearch}) => {
+const Navbar = ({ onSearch, filter = "" }) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
 
@@ -17,7 +17,7 @@ const Navbar = ({onSearch}) => {
           <img src={Logo} alt="Logo" className={styles.logoImage} />
         </div>
         <div className={styles.searchContainer}>
-        <SearchBar onSearch={onSearch} />
+          <SearchBar onSearch={(value) => onSearch(value?.toString() || "")} filter={filter} />
         </div>
         <div className={styles.buttons}>
           <button className={styles.loginButton} onClick={() => setShowLogin(true)}>Log In</button>
@@ -25,7 +25,6 @@ const Navbar = ({onSearch}) => {
         </div>
       </nav>
 
-      {/* 🔹 Login Popup */}
       {showLogin && (
         <div className={styles.popupOverlay} onClick={() => setShowLogin(false)}>
           <div className={styles.popupContent} onClick={(e) => e.stopPropagation()}>
@@ -36,7 +35,6 @@ const Navbar = ({onSearch}) => {
         </div>
       )}
 
-      {/* 🔹 Sign-Up Popup */}
       {showSignup && (
         <div className={styles.popupOverlay} onClick={() => setShowSignup(false)}>
           <div className={styles.popupContent} onClick={(e) => e.stopPropagation()}>
@@ -49,9 +47,10 @@ const Navbar = ({onSearch}) => {
     </>
   );
 };
+
 Navbar.propTypes = {
   onSearch: PropTypes.func.isRequired,
+  filter: PropTypes.string,
 };
 
 export default Navbar;
-
