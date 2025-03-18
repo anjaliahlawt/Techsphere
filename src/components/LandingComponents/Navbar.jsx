@@ -1,10 +1,12 @@
 import { useState } from "react";
-import styles from "./Navbar.module.css";
+import PropTypes from 'prop-types';
+import styles from "../LandingComponents/Navbar.module.css";
 import Logo from "/src/assets/logo.svg";
 import Login from "../login.jsx"; 
 import Signup from "../signUp.jsx"; 
+import SearchBar from "../searchBar.jsx";
 
-const Navbar = () => {
+const Navbar = ({onSearch}) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
 
@@ -15,7 +17,7 @@ const Navbar = () => {
           <img src={Logo} alt="Logo" className={styles.logoImage} />
         </div>
         <div className={styles.searchContainer}>
-          <input type="text" placeholder="Search..." className={styles.searchBar} />
+        <SearchBar onSearch={onSearch} />
         </div>
         <div className={styles.buttons}>
           <button className={styles.loginButton} onClick={() => setShowLogin(true)}>Log In</button>
@@ -47,5 +49,9 @@ const Navbar = () => {
     </>
   );
 };
+Navbar.propTypes = {
+  onSearch: PropTypes.func.isRequired,
+};
 
 export default Navbar;
+

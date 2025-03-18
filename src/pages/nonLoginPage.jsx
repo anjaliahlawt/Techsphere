@@ -8,7 +8,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useBookmarks from "../Hook/useBookmark.js"; 
 
-
 const Nonloginpage = () => {
   const [events, setEvents] = useState([]);
   const [view, setView] = useState("all");
@@ -18,6 +17,7 @@ const Nonloginpage = () => {
   const [duration, setDuration] = useState("");
   const [page, setPage] = useState(1);
   const [error, setError] = useState(null);
+  const [searchText, setSearchText] = useState("");
  
   const { bookmarkedEvents, toggleBookmark } = useBookmarks(); 
 
@@ -64,9 +64,13 @@ const Nonloginpage = () => {
     return `${month} ${day}, ${year}`;
   };
 
+  const filteredEvents = events.filter((event) =>
+    event.name.toLowerCase().includes(searchText.toLowerCase())
+  );
+
   return (
     <div className={styles.eventContainer}>
-      <Navbar />
+      <Navbar onSearch={setSearchText} />
       <h2 className={styles.eventTitle}>Explore Events</h2>
       <ToastContainer />
       <div className={styles.sortContainer}>
@@ -83,17 +87,16 @@ const Nonloginpage = () => {
           <option value="duration">Sort By Duration</option>
           <option value="prize">Sort By Prize</option>
         </select>
-
-        <select onChange={(e) => setPrice(e.target.value)} value={price}>
-          <option value="">Price Pool</option>
-          <option value="$8,000">$8,000</option>
-          <option value="$9,500">$9,500</option>
-          <option value="$10,000">$10,000</option>
-          <option value="$11,000">$11,000</option>
-          <option value="$12,000">$12,000</option>
-          <option value="$15,000">$15,000</option>
+         
+       <select onChange={(e) => setPrice(e.target.value)} value={price}>
+          <option value="">Price</option>
+          <option value="">10000</option>
+          <option value="">9000</option>
+          <option value="">8000</option>
+          <option value="">18000</option>
+          <option value="">20000</option>
         </select>
-
+       
         <select onChange={(e) => setIsFree(e.target.value)} value={isFree}>
           <option value="false">Paid</option>
           <option value="true">Free</option>
@@ -113,41 +116,26 @@ const Nonloginpage = () => {
       {error && <p className={styles.errorText}>Error: {error}</p>}
 
       <div className={styles.eventGrid}>
-        {events.length > 0 ? (
-          events.map((event) => (
+        {filteredEvents.length > 0 ? (
+          filteredEvents.map((event) => (
             <div key={event._id} className={styles.eventCard}>
               <p className={styles.eventLocation}>{event.location}</p>
-              <div
-                className="bookmark-icon"
-                onClick={() => toggleBookmark(event._id)}
-              >
-          <div className={styles.bookmarkIcon} onClick={() => toggleBookmark(event._id)}>
-          <img 
-  src={bookmarkedEvents.has(event._id) ? "/bookmark (1).png" : "/bookmark.png"} 
-  alt="Bookmark Icon"
-  key={event._id} // Adding a key forces React to re-render the image when state updates
-/>
-
-
-</div>
-
-
+              <div className={styles.bookmarkIcon} onClick={() => toggleBookmark(event._id)}>
+                <img 
+                  src={bookmarkedEvents.has(event._id) ? "/bookmark (1).png" : "/bookmark.png"} 
+                  alt="Bookmark Icon"
+                />
               </div>
               <h3 className={styles.eventName}>{event.name}</h3>
               <p className={styles.eventDescription}>{event.description}</p>
               <p className={styles.eventDetail}>
-                Start:{" "}
-                <span className={styles.boldText}>
-                  {formatDate(event.start)}
-                </span>
+                Start: <span className={styles.boldText}>{formatDate(event.start)}</span>
               </p>
               <p className={styles.eventDetail}>
-                Duration:{" "}
-                <span className={styles.boldText}>{event.duration}</span>
+                Duration: <span className={styles.boldText}>{event.duration}</span>
               </p>
               <p className={styles.eventDetail}>
-                Prize Pool:{" "}
-                <span className={styles.boldText}>{event.prize}</span>
+                Prize Pool: <span className={styles.boldText}>{event.prize}</span>
               </p>
               <button onClick={handleViewDetails} className="viewButton">
                 View details

@@ -5,10 +5,11 @@ import SingleEventCard from "./singleEventCard";
 import PropTypes from "prop-types";
 
 const Eventcard = ({eventdata}) => {
-  console.log("1",eventdata);
+  const eventArray = Array.isArray(eventdata) ? eventdata : [eventdata];
   return (
     <>
-      {eventdata.map((event, index) => (
+      {
+      eventArray.map((event, index) => (
         <SingleEventCard key={index} event={event} imageBg={event.imageBg} />
       ))}
     </>

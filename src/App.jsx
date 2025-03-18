@@ -38,6 +38,7 @@ const App = () => {
         } catch (error) {
             console.error("Error fetching eventdata:", error);
         }
+        console.log(" eventdata", eventdata);
     };
 
     useEffect(() => {
